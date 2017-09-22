@@ -244,3 +244,58 @@ print("Hello World!")
 // print(sm._cash1)
 // print(sm._cash2)
 
+
+// // simple enum
+// enum SimpleEnum: Int {
+// 	case one
+// 	case two
+// }
+
+// let onex = SimpleEnum.one
+// print(onex)
+// // variable of type SimpleEnum
+// var se: SimpleEnum
+// se = .two
+// print(se)
+
+// switch(se) {
+// case .one:
+// 	print("Choose one")
+// case .two:
+// 	print("Choose two")
+// }
+// /*
+// rawValue is a reference number assigned 
+// by the compiler when accessing items
+// */
+// print(onex.rawValue)
+
+
+// // ambiguous enum
+// enum Color {
+// 	case red, blue, green, yellow
+// 	// explicitly provide rawValues
+// 	// case red = 1, blue = 2, green = 3, yellow = 4
+// 	func describe() -> String {
+// 		// switch must be exhaustive. no need for 'default case'
+// 		switch self {
+// 		case .red:
+// 			return "redx"
+// 		case .blue:
+// 			return "blue"
+// 		case .green:
+// 			return "green"
+// 		case .yellow:
+// 			return "yellow"
+// 		}
+// 	}
+// }
+
+// var color = Color.red
+// // compiler returns variable name incase its not explicitly provided
+// print(color)
+// // raw value. Incase not provided, it starts from 0
+// // rawValue is only provided by compiler when enum type is provided 'enum Color: Int/Double/...'
+// // print(color.rawValue)
+// // explicitly return your own value
+// print(color.describe())
