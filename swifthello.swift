@@ -96,3 +96,151 @@ print("Hello World!")
 // 	}
 // }
 
+// // first-class function, that returns another function
+// func createIncreament() -> ((Int) -> Int) {
+// 	func add(value: Int) -> Int {
+// 		return value + 1
+// 	}
+// 	return add
+// }
+
+// var increFunction = createIncreament()
+// var number = increFunction(4)
+// print(number)
+
+// // takes function as argument
+// func markStudents(marks: [Int], check: (Int) -> Bool) -> Bool {
+// 	for mark in marks {
+// 		if check(mark) {
+// 			return true
+// 		}
+// 	}
+// 	return false
+// }
+
+// func hasPassed(mark: Int) -> Bool {
+// 	return mark > 90
+// }
+
+// print(markStudents(marks: [20, 89, 50, 94], check: hasPassed))
+
+// empty array and dictionary
+// let emptyArray = [String]()
+// let emptyDictionary = [String: Float]()
+
+// // takes function as argument returns list of results
+// func markStudents(marks: [Int], check: (Int) -> Bool) -> [Bool] {
+// 	var resultsList = [Bool]()
+// 	for mark in marks {
+// 		resultsList.append(check(mark))
+// 	}
+// 	return resultsList
+// }
+
+// func hasPassed(mark: Int) -> Bool {
+// 	return mark > 90
+// }
+
+// print(markStudents(marks: [20, 89, 50, 94, 99, 45, 93], check: hasPassed))
+
+
+// simple class
+// class SimpleClass {
+// 	var name = "simple name"
+// 	func simpleFunc() -> String {
+// 		return "Hello Class \(name)"
+// 	}
+// }
+
+// let simple = SimpleClass()
+// print(simple.name)
+// print(simple.simpleFunc())
+
+
+// class with constructor, getter and setter
+// class SecondClass {
+// 	var name = "second class"
+// 	var cashX: Double = 300000
+
+// 	init(name: String) {
+// 		self.name = name
+// 	}
+
+// 	func greet(age: Int, happy: Bool, gender: String) -> String {
+// 		var emotion: String
+// 		if happy {
+// 			emotion = "happy"
+// 		} else {
+// 			emotion = "unhappy"
+// 		}
+// 		return "Hello \(name), you are a \(age) year old \(emotion) \(gender)"
+// 	}
+
+// 	// cripy getter and setter :)
+// 	var cash: Double {
+// 		get {
+// 			return cashX
+// 		} 
+// 		set {
+// 			cashX = newValue
+// 		}
+// 	}
+// }
+
+// var sc = SecondClass(name: "Codephillip")
+// print(sc.name)
+// print(sc.greet(age: 44, happy: false, gender: "male"))
+// print(sc.cash)
+// sc.cash = 48990000
+// print(sc.cash)
+
+
+// // class with willSet and didSet
+// class ShareMoney {
+// 	var _cash1: Double = 0
+// 	var _cash2: Double = 0
+
+// 	init(cashx1: Double, cashx2: Double) {
+// 		self._cash1 = cashx1
+// 		self._cash2 = cashx2
+// 		/*
+// 		willSet and didSet observers are not called 
+// 		when a property is first initialized. 
+// 		They are only called when the property’s value is 
+// 		set outside of an initialization context
+// 		*/
+// 		cash1 = 1000
+// 		cash2 = 1000
+// 	}
+
+// 	var cash1: Double {
+// 		// Called before the prop is set
+// 		willSet {
+// 			_cash1 = newValue
+// 			_cash2 = (_cash2 + _cash1 / 2)
+// 		}
+// 		// Called after a new val is set
+// 		didSet {
+// 			print("Finished changing cash1")
+// 		}
+// 	}
+
+// 	var cash2: Double {
+// 		willSet {
+// 			_cash2 = newValue
+// 			_cash1 = (_cash1 + _cash2 / 2)
+// 		}
+// 		didSet {
+// 			print("Finished changing cash2")
+// 		}
+// 	}
+// }
+
+// var sm = ShareMoney(cashx1: 2000, cashx2: 3000)
+// print(sm._cash1)
+// print(sm._cash2)
+// sm.cash1 = 40000
+// sm.cash2 = 60000
+// print(sm._cash1)
+// print(sm._cash2)
+
