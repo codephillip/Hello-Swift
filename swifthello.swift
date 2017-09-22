@@ -299,3 +299,92 @@ print("Hello World!")
 // // print(color.rawValue)
 // // explicitly return your own value
 // print(color.describe())
+
+
+// // structures
+// struct MyStruct {
+// 	var One = 1
+// 	var Two = 2
+// 	func describe() -> String {
+// 		return "Count \(One), Count \(Two)"
+// 	}
+// }
+
+// var stt = MyStruct()
+// print(stt.Two)
+
+// var stt2 = MyStruct(One: 11, Two: 22)
+// print(stt2)
+// print(stt2.One)
+// print(stt2.describe())
+
+
+// // exception handling
+// enum Gender{
+// 	case male
+// 	case female
+// }
+
+// enum CustomError: Error {
+// 	case notFoundError
+// 	case notNowError
+// 	case callMeLaterError
+// 	case videHerNow
+// 	case notFunnyError
+// }
+
+// func crashOnBabe(_ age: Int, _ gender: Gender, _ hot: Bool, _ superHot: Bool) throws -> Bool {
+// 	if superHot {
+// 		// ofcourse we throw an error for SuperHot Babes 
+// 		throw CustomError.videHerNow
+// 	}
+// 	else if ((age > 18 && age < 26) && (gender == .female) && hot) {
+// 		return true
+// 	} else {
+// 		throw CustomError.notNowError
+// 	}
+// }
+
+// /*
+// optional returns nil or true/false
+// use this incase you don't need the do-catch block
+// */
+// let vibeBabe1 = try? crashOnBabe(20, Gender.female, true, true)
+// print(vibeBabe1)
+
+// do {
+// 	let vibeBabe2 = try crashOnBabe(21, Gender.female, true, false)
+// 	print(vibeBabe2)
+// } catch let error as CustomError {
+// 	print("Error message \(error)")
+// }
+
+// // // specify error
+// // do {
+// // } catch CustomError.notNowError {
+// // }
+
+// // // generic error
+// // do {
+// // } catch {
+// // 	print("Error message \(error)")
+// // }
+
+
+// Defer
+/*
+defer is executed last, regardless of an exception 
+and called before return statement
+*/
+var isGreaterThanTen = false
+func add(num1: Int, num2: Int) -> Int {
+	var sum = 0
+	defer {
+		isGreaterThanTen = sum > 10
+	}
+	sum = num1 + num2
+	return sum
+}
+
+let totalSum = add(num1: 3, num2: 10)
+print("TotalSum \(totalSum) is greater \(isGreaterThanTen)")
